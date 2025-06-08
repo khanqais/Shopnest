@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {assets} from '../assets/assets'
-import { NavLink } from 'react-router-dom'
+import { NavLink,Link } from 'react-router-dom'
 import "./Navbar.css"
 const Navbar = () => {
     const [open,setOpen]=useState(false);
@@ -31,6 +31,9 @@ const Navbar = () => {
     )}
 
 </div>
+  <Link to='/cart'>
+   <img src={assets.cart_icon} alt="" />
+  </Link>
 </div>
 </div>
 
