@@ -2,7 +2,7 @@ import React from 'react'
 
 const OurPolicy = () => {
   return (
-    <div></div>
+    <div>vekjbiuwvbivbewiubbviei</div>
   )
 }
 
