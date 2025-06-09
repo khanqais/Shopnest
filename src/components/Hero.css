@@ -1,7 +1,7 @@
 .hero-section {
   display: flex;
   width: 1000px;
-  height: 450px;
+  height: 350px;
   margin: 40px auto;
   border: 1px solid #ccc;
 }
@@ -54,5 +54,4 @@
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-  margin-top: 50px;
 }

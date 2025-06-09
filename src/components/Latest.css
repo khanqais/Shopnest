@@ -1,0 +1,45 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.text{
+    font-size: 30px;
+    margin-top: 20px;
+}
+.text_2{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;        
+  row-gap: 1.5rem; 
+  margin-left: 130px;  
+  margin-right: 120px;
+  margin-top: 10px;
+}
+
+.image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.1);
+}
+.best-item{
+   display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;   
+  row-gap: 1.5rem; 
+  margin-left: 130px;  
+  margin-right: 120px;
+  margin-top: 10px;    
+}
+
+
+
+
