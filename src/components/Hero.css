@@ -23,13 +23,6 @@
   font-weight: bold;
 }
 
-.title {
-  font-size: 48px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: #333;
-}
-
 .shop-link {
   font-weight: bold;
   font-size: 14px;
@@ -61,4 +54,5 @@
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
+  margin-top: 50px;
 }
