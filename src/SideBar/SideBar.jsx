@@ -1,8 +1,12 @@
 import React from 'react'
-
+import Category from "./Category/Category"
+import Type from './Type/Type'
 const SideBar = () => {
   return (
-    <div>SideBAr</div>
+    <div>
+      <Category/>
+      <Type/>
+    </div>
   )
 }
 

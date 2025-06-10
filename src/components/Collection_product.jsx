@@ -1,13 +1,12 @@
-import React from 'react'
-import { products } from '../assets/assets'
-const Collection_product = () => {
-  
+import React from 'react';
+import "./collection.css"
+const Collection_product = ({ result }) => {
   return (
-    <div>
-
-      dud
+    <div className='collection'>
+      
+      {result}
     </div>
-  )
-}
+  );
+};
 
-export default Collection_product
+export default Collection_product;
