@@ -7,7 +7,7 @@ const Navbar = ({ query, handleInput }) => {
   const [open, setOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation(); // get current route
+  const location = useLocation(); 
 
   const handleSearchClick = () => {
     setShowSearch(!showSearch);

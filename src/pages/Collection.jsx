@@ -1,55 +1,76 @@
-import React, { useState } from 'react'
-import SideBar from '../SideBar/SideBAr'
-import Collection_product from '../components/Collection_product'
-import { products } from '../assets/assets'
-import ProductItem from '../components/ProductItem'
-import Navbar from '../components/Navbar'
-import "../components/collection.css"
-import Title from '../components/Title'
+import React, { useState } from 'react';
+import SideBar from '../SideBar/SideBar';
+import Collection_product from '../components/Collection_product';
+import { products } from '../assets/assets';
+import ProductItem from '../components/ProductItem';
+import Navbar from '../components/Navbar';
+import Title from '../components/Title';
+import '../components/collection.css';
+
 const Collection = () => {
-  const [query,setquery]=useState("");
-  const [selected,Setselected]=useState("");
-  const handleInput=(event)=>{
-    setquery(event.target.value);
-  }
-  const filtereditem= products.filter(
-     (product)=> product.name.toLowerCase().indexOf(query.toLowerCase())!== -1
-  );
-  function filtereddata(products,selected,query) {
-    let filteredProducts = products;
+  const [query, setQuery] = useState('');
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const handleInput = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter((item) => item !== category) // Deselect
+        : [...prev, category]                      // Select
+    );
+  };
+
+  const filteredData = (products, selectedCategories, query) => {
+    let filtered = products;
 
     if (query) {
-      filteredProducts = filtereditem;
+      filtered = filtered.filter((product) =>
+        product.name.toLowerCase().includes(query.toLowerCase())
+      );
     }
-    return filteredProducts.map(
-      ({ _id,image,name,price }) => (
-        <ProductItem
-          key={_id}
-          id={_id}
-          image={image[0]}
-          name={name}
-          price={price}
-        />
-      )
-    );
-  }
-  const result = filtereddata(products,selected,query);
-  
+
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter(
+        ({ category, subCategory }) =>
+          selectedCategories.includes(category) ||
+          selectedCategories.includes(subCategory)
+      );
+    }
+
+    return filtered.map(({ _id, image, name, price }) => (
+      <ProductItem
+        key={_id}
+        id={_id}
+        image={image[0]}
+        name={name}
+        price={price}
+      />
+    ));
+  };
+
+  const result = filteredData(products, selectedCategories, query);
+
   return (
     <div>
-      <Navbar query={query} handleInput={handleInput}/>
-      <Title/>
+      <Navbar query={query} handleInput={handleInput} />
+      <Title />
       <div className="collection-wrapper">
         <div className="filter">
-          <div style={{marginLeft:"30px", fontSize:'20px',fontWeight:"lighter"}}>Filter</div>
-          <SideBar/>
+          <div style={{ marginLeft: '0px', fontSize: '20px', fontWeight: 'lighter' }}>
+            Filter
+          </div>
+          <SideBar
+            selectedCategories={selectedCategories}
+            handleCategoryChange={handleCategoryChange}
+          />
         </div>
         <Collection_product result={result} />
-      </div> 
-
-     <SideBar />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Collection
+export default Collection;
