@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { assets } from '../assets/assets';
+import { ShopContext } from '../context/ShopContext';
 import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom'; 
 import './Navbar.css';
 
@@ -8,7 +9,7 @@ const Navbar = ({ query, handleInput }) => {
   const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
   const location = useLocation(); 
-
+  const {getCartCount} =useContext(ShopContext);
   const handleSearchClick = () => {
     setShowSearch(!showSearch);
   };

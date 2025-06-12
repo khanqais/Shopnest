@@ -16,7 +16,7 @@ const LatestCollection = () => {
     
     <div>
         <div className='title'>
-           <p className="text">Latest Collection</p>
+           <div className="text">Latest Collection</div>
         </div>
         <p className='text_2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
         </p>

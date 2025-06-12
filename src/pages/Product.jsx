@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { assets, products } from '../assets/assets';
 import { useState,useEffect } from 'react';
@@ -6,11 +6,13 @@ import ProductItem from '../components/ProductItem';
 import NavBar from "../components/Navbar"
 import "./Product.css"
 import RelatedProduct from '../components/RelatedProduct';
+import { ShopContext } from '../context/ShopContext';
 const Product = () => {
   const {productId}=useParams();
   const [productData,setProductData]=useState(null);
   const [image,setimage]=useState('');
   const [size,SetSize]=useState('');
+  const {AddtoCart}= useContext(ShopContext)
   const fetchProductData= async ()=>{
     products.map((item)=>{
       if(item._id===productId)
@@ -51,8 +53,8 @@ const Product = () => {
   </div>
 
   {/* Right Column */}
-  <div className="text">
-    <div className="title">{productData.name}</div>
+  <div className="text_9">  
+    <div className="title_2">{productData.name}</div>
     <div className="stars">
       {[...Array(5)].map((_, i) => (
         <img src={assets.star_icon} key={i} alt="star" />
@@ -70,7 +72,7 @@ const Product = () => {
       </div>
 
     </div>
-    <button className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
+    <button onClick={()=>AddtoCart(productData._id,size)} className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
 
       </div>
     </div>
