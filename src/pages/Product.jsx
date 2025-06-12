@@ -12,6 +12,7 @@ const Product = () => {
   const [productData,setProductData]=useState(null);
   const [image,setimage]=useState('');
   const [size,SetSize]=useState('');
+  const {AddtoCart} =useContext(ShopContext)
   const fetchProductData= async ()=>{
     products.map((item)=>{
       if(item._id===productId)
@@ -51,7 +52,6 @@ const Product = () => {
     </div>
   </div>
 
-  {/* Right Column */}
   <div className="text_9">  
     <div className="title_2">{productData.name}</div>
     <div className="stars">
