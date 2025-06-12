@@ -12,7 +12,6 @@ const Product = () => {
   const [productData,setProductData]=useState(null);
   const [image,setimage]=useState('');
   const [size,SetSize]=useState('');
-  const {AddtoCart}= useContext(ShopContext)
   const fetchProductData= async ()=>{
     products.map((item)=>{
       if(item._id===productId)
